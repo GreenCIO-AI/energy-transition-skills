@@ -119,6 +119,7 @@ const result = await loader.executeSkill('lcoe-calculator', 'calculate_lcoe.py',
 
 ## Documentation
 
+- [Integration Guide](./docs/INTEGRATION_GUIDE.md) - How to use skills with Claude Agent SDK and Claude Code
 - [Skill Development Guide](./docs/SKILL_DEVELOPMENT_GUIDE.md) - Comprehensive guide to creating skills
 
 ## Why Open Source Skills?
