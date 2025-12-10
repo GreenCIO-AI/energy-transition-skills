@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://greencio.com/skills/lcoe-calculator/output.schema.json",
+  "title": "LCOE Calculator Output",
+  "description": "Output from Levelized Cost of Energy calculation",
+  "type": "object",
+  "required": ["success", "metadata"],
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "Whether calculation succeeded"
+    },
+    "data": {
+      "type": "object",
+      "description": "Calculation results (present when success=true)",
+      "properties": {
+        "lcoe_usd_per_mwh": {
+          "type": "number",
+          "description": "Levelized cost in USD per MWh"
+        },
+        "lcoe_usd_per_kwh": {
+          "type": "number",
+          "description": "Levelized cost in USD per kWh"
+        },
+        "lcoe_cents_per_kwh": {
+          "type": "number",
+          "description": "Levelized cost in cents per kWh"
+        },
+        "total_lifecycle_cost_usd": {
+          "type": "number",
+          "description": "Sum of all costs over project lifetime (undiscounted)"
+        },
+        "total_lifetime_generation_mwh": {
+          "type": "number",
+          "description": "Sum of all generation over project lifetime (undiscounted)"
+        },
+        "npv_costs_usd": {
+          "type": "number",
+          "description": "Net present value of all costs"
+        },
+        "npv_generation_mwh": {
+          "type": "number",
+          "description": "Net present value of all generation"
+        },
+        "capacity_factor": {
+          "type": ["number", "null"],
+          "description": "Capacity factor as percentage (if capacity_mw provided)"
+        },
+        "annual_breakdown": {
+          "type": "array",
+          "description": "Year-by-year breakdown of costs and generation",
+          "items": {
+            "type": "object",
+            "properties": {
+              "year": { "type": "integer" },
+              "generation_mwh": { "type": "number" },
+              "opex_usd": { "type": "number" },
+              "fuel_usd": { "type": "number" },
+              "total_cost_usd": { "type": "number" },
+              "discounted_cost_usd": { "type": "number" },
+              "discounted_generation_mwh": { "type": "number" },
+              "cumulative_discounted_cost_usd": { "type": "number" },
+              "cumulative_discounted_generation_mwh": { "type": "number" }
+            }
+          }
+        },
+        "inputs_summary": {
+          "type": "object",
+          "description": "Echo of validated input parameters"
+        }
+      }
+    },
+    "error": {
+      "type": "object",
+      "description": "Error details (present when success=false)",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Error code for programmatic handling"
+        },
+        "message": {
+          "type": "string",
+          "description": "Human-readable error message"
+        },
+        "field": {
+          "type": "string",
+          "description": "Field that caused the error"
+        },
+        "received": {
+          "description": "Value that was received"
+        },
+        "expected": {
+          "type": "string",
+          "description": "Description of expected value"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Execution metadata",
+      "properties": {
+        "skill": {
+          "type": "string",
+          "description": "Skill name"
+        },
+        "version": {
+          "type": "string",
+          "description": "Skill version"
+        },
+        "inputs_hash": {
+          "type": "string",
+          "description": "SHA256 hash of inputs for reproducibility"
+        },
+        "calculated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://greencio.com/skills/lcoe-calculator/input.schema.json",
+  "title": "LCOE Calculator Input",
+  "description": "Input parameters for Levelized Cost of Energy calculation",
+  "type": "object",
+  "required": [
+    "capex_usd",
+    "annual_generation_mwh",
+    "project_lifetime_years",
+    "discount_rate"
+  ],
+  "properties": {
+    "capex_usd": {
+      "type": "number",
+      "description": "Total capital expenditure in USD",
+      "exclusiveMinimum": 0,
+      "examples": [80000000, 1000000]
+    },
+    "annual_generation_mwh": {
+      "type": "number",
+      "description": "Expected annual energy generation in MWh",
+      "exclusiveMinimum": 0,
+      "examples": [200000, 2000]
+    },
+    "project_lifetime_years": {
+      "type": "integer",
+      "description": "Project operational lifetime in years",
+      "minimum": 1,
+      "maximum": 50,
+      "examples": [25, 20, 30]
+    },
+    "discount_rate": {
+      "type": "number",
+      "description": "Discount rate as decimal (e.g., 0.08 for 8%)",
+      "minimum": 0,
+      "maximum": 0.30,
+      "examples": [0.08, 0.10, 0.06]
+    },
+    "annual_opex_usd": {
+      "type": "number",
+      "description": "Annual operations and maintenance costs in USD",
+      "minimum": 0,
+      "default": 0,
+      "examples": [800000, 20000]
+    },
+    "annual_fuel_cost_usd": {
+      "type": "number",
+      "description": "Annual fuel costs in USD (typically 0 for renewables)",
+      "minimum": 0,
+      "default": 0,
+      "examples": [0, 500000]
+    },
+    "opex_escalation_rate": {
+      "type": "number",
+      "description": "Annual O&M cost escalation rate as decimal",
+      "minimum": 0,
+      "maximum": 0.20,
+      "default": 0.02,
+      "examples": [0.02, 0.025]
+    },
+    "fuel_escalation_rate": {
+      "type": "number",
+      "description": "Annual fuel cost escalation rate as decimal",
+      "minimum": 0,
+      "maximum": 0.20,
+      "default": 0.02,
+      "examples": [0.02, 0.03]
+    },
+    "degradation_rate": {
+      "type": "number",
+      "description": "Annual generation degradation rate as decimal",
+      "minimum": 0,
+      "maximum": 0.10,
+      "default": 0.005,
+      "examples": [0.005, 0.01]
+    },
+    "capacity_mw": {
+      "type": ["number", "null"],
+      "description": "Nameplate capacity in MW (optional, used for capacity factor)",
+      "exclusiveMinimum": 0,
+      "examples": [100, 50, 25]
+    },
+    "technology": {
+      "type": "string",
+      "description": "Technology type for labeling",
+      "default": "generic",
+      "examples": ["solar_pv", "wind_onshore", "wind_offshore", "gas_ccgt", "battery_storage"]
+    }
+  },
+  "additionalProperties": false
+}

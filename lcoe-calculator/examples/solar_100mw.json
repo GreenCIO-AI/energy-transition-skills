@@ -1,0 +1,12 @@
+{
+  "technology": "solar_pv",
+  "capacity_mw": 100,
+  "capex_usd": 80000000,
+  "annual_opex_usd": 800000,
+  "annual_fuel_cost_usd": 0,
+  "annual_generation_mwh": 200000,
+  "project_lifetime_years": 25,
+  "discount_rate": 0.08,
+  "degradation_rate": 0.005,
+  "opex_escalation_rate": 0.02
+}

@@ -1,0 +1,12 @@
+{
+  "technology": "wind_onshore",
+  "capacity_mw": 50,
+  "capex_usd": 65000000,
+  "annual_opex_usd": 1000000,
+  "annual_fuel_cost_usd": 0,
+  "annual_generation_mwh": 130000,
+  "project_lifetime_years": 25,
+  "discount_rate": 0.08,
+  "degradation_rate": 0.002,
+  "opex_escalation_rate": 0.02
+}
