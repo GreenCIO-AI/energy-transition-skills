@@ -140,4 +140,4 @@ MIT License - see [LICENSE](./LICENSE) for details.
 
 - Website: [greencio.com](https://www.greencio.com)
 - Contribute: [greencio.com/contribute-skills](https://www.greencio.com/contribute-skills)
-- Email: skills@greencio.com
+- X: [@greencio](https://x.com/greencio)
